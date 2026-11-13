@@ -11,8 +11,8 @@ services:
       TZ: America/Lima
       DISABLE_IPV6: "true"
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - npm_data:/data
+      - npm_letsencrypt:/etc/letsencrypt
     networks:
       - proxy
     healthcheck:
@@ -21,7 +21,12 @@ services:
       timeout: 10s
       retries: 3
 
+volumes:
+  npm_data:
+  npm_letsencrypt:
+
 networks:
   proxy:
     name: proxy
     driver: bridge
+    external: true
