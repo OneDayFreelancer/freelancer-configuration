@@ -1,0 +1,16 @@
+services:
+  web:
+    image: ghcr.io/onedayfreelancer/altivia-web:latest
+    container_name: altivia-web
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      TZ: America/Lima
+    expose:
+      - "80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
