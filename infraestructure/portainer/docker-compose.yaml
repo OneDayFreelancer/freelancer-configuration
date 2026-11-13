@@ -1,0 +1,21 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:lts
+    container_name: portainer
+    restart: unless-stopped
+    command: -H unix:///var/run/docker.sock
+    environment:
+      TZ: America/Lima
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+    networks:
+      - proxy
+    # Sin "ports": se accede vía NPM -> https://portainer:9443
+    # Para acceso directo temporal (primer setup), descomenta:
+    # ports:
+    #   - "127.0.0.1:9443:9443"
+
+networks:
+  proxy:
+    external: true
