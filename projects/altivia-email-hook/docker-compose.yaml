@@ -1,0 +1,22 @@
+services:
+  altivia-email-hook:
+    image: ghcr.io/onedayfreelancer/altivia-emauk-hook:latest
+    container_name: altivia-email-hook
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - PORT=80
+      - SEND_EMAIL_HOOK_SECRET
+      - SUPABASE_URL
+      - RESEND_API_KEY
+    networks:
+      - proxy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  proxy:
+    external: true
