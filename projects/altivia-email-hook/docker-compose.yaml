@@ -1,6 +1,6 @@
 services:
   altivia-email-hook:
-    image: ghcr.io/onedayfreelancer/altivia-emauk-hook:latest
+    image: ghcr.io/onedayfreelancer/altivia-email-hook:latest
     container_name: altivia-email-hook
     restart: unless-stopped
     pull_policy: always
