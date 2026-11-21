@@ -13,7 +13,7 @@ services:
       - SMTP_USER
       - SMTP_PASS
       - SEND_EMAIL_HOOK_SECRET
-      - MAIL_FRO
+      - MAIL_FROM
       - SMTP_TLS_REJECT_UNAUTHORIZED
     networks:
       - proxy
